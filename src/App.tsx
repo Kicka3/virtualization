@@ -1,11 +1,12 @@
-import {VirtualizationList} from "@/components/VirtualizationList/VirtualizationList";
+import {VirtualizationList} from "@/task-two/components/VirtualizationList";
+
 
 export function App() {
 
     return (
         <>
-        <div>My virtualization</div>
-        <VirtualizationList/>
+            <h1>My virtualization</h1>
+                <VirtualizationList/>
         </>
     )
 }

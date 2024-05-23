@@ -1,6 +1,6 @@
 import {useCallback, useRef, useState} from "react";
-import {useVirtualFilter} from "@/hook";
-import {containerHeight, itemHeight} from "@/constants";
+import {useVirtualFilter} from "../../hook";
+import {containerHeight, itemHeight} from "../../constants";
 import s from './VirtualizationList.module.scss'
 
 
@@ -12,40 +12,32 @@ const createItems = () =>
 
 
 export function VirtualizationList() {
-    const [listItems, setListItems] = useState(createItems);
+    const [listItems] = useState(createItems);
     const scrollElementRef = useRef<HTMLDivElement>(null);
 
-    const {virtualItems, totalHeight} = useVirtualFilter({
+    const {virtualElements,totalListHeight} = useVirtualFilter({
         itemHeight: itemHeight,
         itemsCount: listItems.length,
         listHeight: containerHeight,
         getScrollElement: useCallback(() => scrollElementRef.current, []),
     });
 
-    const onReverseTable = () => {
-        setListItems((items) => items.slice().reverse())
-    }
-
     return (
         <section className={s.listContainer}>
             <h1>List</h1>
-            <div style={{marginBottom: 12}}>
-                <button onClick={onReverseTable} >
-                    reverse
-                </button>
-            </div>
             <div ref={scrollElementRef}
                 className={s.itemsWrapper}
                 style={{height: containerHeight}}
             >
-                <ul style={{height: totalHeight}}>
-                    {virtualItems.map((virtualItem) => {
+                <ul style={{height: totalListHeight}}>
+                    {virtualElements.map((virtualItem) => {
                         const item = listItems[virtualItem.index]!;
 
                         return (
                             <li className={s.tableItem}
                                 style={{
-                                    transform: `translateY(${virtualItem.offsetTop}px)`,
+                                    willChange: 'transform',
+                                    transform: `translateY(${virtualItem.topOffset}px)`,
                                     height: itemHeight,
                                 }}
                                 key={item.id}
