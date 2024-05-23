@@ -1,30 +1,43 @@
-# React + TypeScript + Vite
+# React + Vite Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Этот проект представляет собой базовую структуру приложения на React, созданную с использованием Vite для быстрой разработки.
 
-Currently, two official plugins are available:
+## Установка и запуск
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Для запуска проекта на локальной машине следуйте инструкциям ниже:
 
-## Expanding the ESLint configuration
+### 1. Клонирование проекта
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Сначала клонируйте репозиторий на свой компьютер:
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```bash
+git clone https://github.com/Kicka3/virtualization
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### 2. Установка зависимостей
+Перейдите в директорию проекта и установите необходимые зависимости:
+
+```bash
+cd ваш_репозиторий
+```
+```bash
+pnpm install
+```
+### 3. Запуск проекта
+Запустите проект в режиме разработки:
+```bash
+pnpm dev
+```
+
+Откройте http://localhost:5173 в вашем браузере, чтобы увидеть результат.
+
+### 4. Структура проекта
+- src/: Основной каталог для исходного кода.
+
+- src/components/: Компоненты React.
+
+- src/App.jsx: Главный компонент приложения.
+
+- src/main.jsx: Точка входа приложения.
+
+- public/: Каталог для статических файлов, таких как index.html.
