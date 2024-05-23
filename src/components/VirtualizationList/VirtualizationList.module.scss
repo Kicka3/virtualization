@@ -1,0 +1,20 @@
+.listContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.itemsWrapper {
+  overflow: auto;
+  border: 1px solid lightslategrey;
+  position: relative;
+  width: 200px;
+}
+
+.tableItem {
+  list-style: none;
+  position: absolute;
+  top: 0;
+  padding: 6px 12px;
+}
